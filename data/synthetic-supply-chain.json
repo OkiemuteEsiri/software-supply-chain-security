@@ -1,0 +1,60 @@
+{
+  "dataset": "synthetic-demo-only",
+  "components": [
+    {
+      "name": "payments-api/library-a",
+      "type": "dependency",
+      "version": "latest",
+      "integrity_hash": "",
+      "registry": "unapproved.example.invalid",
+      "registry_approved": false,
+      "supported": true,
+      "critical": true,
+      "owner": "platform-security"
+    },
+    {
+      "name": "orders-api/library-b",
+      "type": "dependency",
+      "version": "4.8.2",
+      "integrity_hash": "sha256:synthetic-demo-value",
+      "registry": "approved.example.invalid",
+      "registry_approved": true,
+      "supported": false,
+      "critical": false,
+      "owner": "application-team"
+    },
+    {
+      "name": "identity-service/base-image",
+      "type": "container-base",
+      "version": "sha256:synthetic-image-digest",
+      "integrity_hash": "sha256:synthetic-demo-value-2",
+      "registry": "approved.example.invalid",
+      "registry_approved": true,
+      "supported": true,
+      "critical": true,
+      "owner": "identity-team"
+    }
+  ],
+  "builds": [
+    {
+      "name": "release-workflow",
+      "sbom_generated": false,
+      "provenance_attested": false,
+      "artifact_signed": false,
+      "workflow_permissions": "write-all",
+      "third_party_actions_pinned": false,
+      "long_lived_credentials": true,
+      "protected_release_approval": false
+    },
+    {
+      "name": "hardened-reference-workflow",
+      "sbom_generated": true,
+      "provenance_attested": true,
+      "artifact_signed": true,
+      "workflow_permissions": "read-minimal",
+      "third_party_actions_pinned": true,
+      "long_lived_credentials": false,
+      "protected_release_approval": true
+    }
+  ]
+}
